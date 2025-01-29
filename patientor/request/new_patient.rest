@@ -1,0 +1,11 @@
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+        "name": "Tarmo Tonttu",
+        "number": "123 456 789",
+        "dateOfBirth": "2000-01-01",
+        "ssn": "111085-9369",
+        "gender": "other",
+        "occupation": "Elf"
+}
