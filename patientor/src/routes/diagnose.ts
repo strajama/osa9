@@ -2,6 +2,7 @@ import express from 'express';
 import diagnoseService from '../services/diagnoseService';
 import { DiagnoseEntry } from '../types';
 import { Response } from 'express';
+import { errorMiddleware } from '../utils';
 
 const diagnoseRouter = express.Router();
 
@@ -13,5 +14,7 @@ diagnoseRouter.get('/', (_req, res: Response<DiagnoseEntry[]>) => {
 diagnoseRouter.post('/', (_req, res) => {
   res.send('Saving a diagnoses!');
 });
+
+diagnoseRouter.use(errorMiddleware);
 
 export default diagnoseRouter;
