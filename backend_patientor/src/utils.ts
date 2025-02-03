@@ -7,8 +7,7 @@ export const NewPatientSchema = z.object({
   dateOfBirth: z.string().date(),
   ssn: z.string(),
   gender: z.nativeEnum(Gender),
-  occupation: z.string(),
-  entries: z.array(z.object({ }))
+  occupation: z.string()
 });
 
 export const errorMiddleware = (error: unknown, _req: Request, res: Response, next: NextFunction) => { 

@@ -1,12 +1,12 @@
 import express from 'express';
 import diagnoseService from '../services/diagnoseService';
-import { DiagnoseEntry } from '../types';
+import { Diagnosis } from '../types';
 import { Response } from 'express';
 import { errorMiddleware } from '../utils';
 
 const diagnoseRouter = express.Router();
 
-diagnoseRouter.get('/', (_req, res: Response<DiagnoseEntry[]>) => {
+diagnoseRouter.get('/', (_req, res: Response<Diagnosis[]>) => {
   console.log('Fetching all diagnoses!');
   res.send(diagnoseService.getDiagnoses());
 });

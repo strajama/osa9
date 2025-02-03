@@ -27,13 +27,11 @@ const newPatientParser = (req: Request, _res: Response, next:NextFunction) => {
 patientRouter.post('/', newPatientParser, (req:Request<unknown, unknown, NewPatient>, 
   res:Response<Patient>) => {
     const newPatient = NewPatientSchema.parse(req.body);
-    newPatient.entries = [];
     const addedPatient = patientService.addPatient(newPatient);
     res.json(addedPatient);
 });
 
 patientRouter.get('/:id', (req, res) => {
-  console.log('Fetching patient with id: ', req.params.id);
   const patient = patientService.findById(String(req.params.id));
 
   if (patient) {
